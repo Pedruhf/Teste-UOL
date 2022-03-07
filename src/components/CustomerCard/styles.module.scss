@@ -1,0 +1,194 @@
+.customerContainer {
+  width: 100%;
+  padding: 0.5rem;
+  
+  border: 1px solid #eee;
+  font-size: 0.8rem;
+  color: var(--light-gray);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "basicInfo status"
+    "phone editButton";
+  gap: 0.5rem 0;
+
+  & + .customerContainer {
+    margin-top: 1rem;
+  }
+}
+
+.basicInfo {  
+  display: flex;
+  flex-direction: column;
+  grid-area: basicInfo;
+
+  strong {
+    color: #A2A2A2;
+  }
+}
+
+.customerPhone {
+  grid-area: phone;
+  align-self: center;
+  justify-self: flex-start;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  strong {
+    color: #A2A2A2;
+  }
+}
+
+.customerStatus {
+  grid-area: status;
+  justify-self: flex-end;
+  align-self: center;
+
+  display: flex;
+  align-items: center;
+}
+
+.editButton {
+  width: max-content;
+  padding: 0.4rem;
+  
+  border-radius: 0.2rem;
+  border: 1px solid var(--primary-orange);
+  background: transparent;
+  color: var(--primary-orange);
+  
+  grid-area: editButton;
+  justify-self: flex-end;
+  align-self: center;
+  font-size: 0.7rem;
+
+  transition: 0.3s background;
+
+  &:hover {
+    background: var(--primary-orange);
+    color: #eee;
+  }
+}
+
+@media (min-width: 425px) {
+  .customerContainer {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    gap: 0.5rem 0;
+  
+    & + .customerContainer {
+      margin-top: 1rem;
+    }
+  }
+
+  .editButton {
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .customerContainer {
+    padding: 1rem;
+    font-size: 1rem;
+
+    display: grid;
+    grid-template-columns: 1.4fr 0.9fr 0.9fr 0.5fr;
+    grid-template-areas: "basicInfo phone status editButton";
+  
+    & + .customerContainer {
+      margin-top: 1rem;
+    }
+  }
+
+  .basicInfo {  
+    strong {
+      margin-bottom: 0.2rem;
+    }
+  }
+  
+  .customerPhone {
+    strong {
+      margin-bottom: 0.2rem;
+    }
+  }
+
+  .customerStatus {
+    justify-self: flex-start;
+
+    svg {
+      margin-right: 0.1rem;
+      font-size: 1rem;
+    }
+  }
+
+  .editButton {
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .customerContainer {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+
+    display: grid;
+    grid-template-columns: 1.1fr 0.7fr 1fr 0.5fr;
+    grid-template-areas: "basicInfo phone status editButton";  
+  
+    & + .customerContainer {
+      margin-top: 1.4rem;
+    }
+  }
+
+  .customerStatus {
+    justify-self: flex-start;
+
+    svg {
+      margin-right: 0.1rem;
+      font-size: 1.2rem;
+    }
+  }
+
+  .editButton {
+    padding: 0.7rem 1.4rem;
+    border-radius: 0.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .customerContainer {
+    padding: 1.3rem 2rem;
+    font-size: 1.1rem;
+
+    display: grid;
+    grid-template-columns: 1.1fr 0.7fr 0.7fr 0.5fr;
+    grid-template-areas: "basicInfo phone status editButton";
+  
+    & + .customerContainer {
+      margin-top: 1.4rem;
+    }
+  }
+
+  .customerStatus {
+    justify-self: flex-start;
+
+    svg {
+      margin-right: 0.2rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  .editButton {
+    padding: 0.7rem 2.5rem;
+    border-radius: 0.2rem;
+    font-size: 1rem;
+  }
+}

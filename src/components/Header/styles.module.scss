@@ -1,0 +1,16 @@
+.headerContainer {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--primary-gray);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 5.4rem;
+    color: #fff;
+
+    flex-shrink: 0;
+  }
+}

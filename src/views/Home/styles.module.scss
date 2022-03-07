@@ -1,0 +1,150 @@
+.homeContainer {
+  width: 70%;
+  min-height: 100vh;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pageTitle {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+
+  color: var(--primary-gray);
+
+  svg {
+    font-size: 1.75rem;
+  }
+
+  span {
+    margin-left: 0.75rem;
+    font-size: 1.4rem;
+  }
+}
+
+.usersListInfoContainer {
+  display: flex;
+  flex-direction: column;
+
+  a {
+    width: max-content;
+    margin-top: 1rem;
+    padding: 0.5rem 0.8rem;
+    
+    outline: 0;
+    border: 0;
+    border-radius: 0.3rem;
+
+    background: var(--primary-orange);
+    color: #eee;
+    transition: 0.3s background;
+    text-decoration: none;
+
+    &:hover {
+      background: transparent;
+      border: 1px solid var(--primary-orange);
+      color: var(--primary-orange);
+    }
+  }
+}
+
+.usersListInfoContent {
+  p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #646B71;
+  }
+
+  span {
+    font-size: 1rem;
+    color: var(--light-gray);
+  }
+}
+
+hr {
+  margin: 0.75rem 0;
+  background: #F4F4F4;
+  height: 1px;
+  width: 100%;
+  opacity: 0.3;
+}
+
+.usersListInfoContainer {
+  width: 100%;
+}
+
+.customersContainer {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.customersQuantity {
+  margin-top: 1rem;
+  align-self: flex-start;
+  color: var(--light-gray);
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .pageTitle {
+    svg {
+      font-size: 3rem;
+    }
+  
+    span {
+      margin-left: 1.5rem;
+      font-size: 2rem;
+    }
+  }
+
+  hr {
+    margin: 2rem 0;
+    background: #F4F4F4;
+    height: 1px;
+    width: 100%;
+    opacity: 0.2;
+  }
+
+  .usersListInfoContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  
+    button {
+      margin-top: 0;
+      margin-right: 2rem;
+      padding: 0.6rem 1rem;
+      border-radius: 0.3rem;
+      font-size: 1rem;
+    }
+  }
+
+  .usersListInfoContent {
+    p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #646B71;
+    }
+  
+    span {
+      font-size: 1.1rem;
+      color: var(--light-gray);
+    }
+  }
+
+  .customersContainer {
+    margin-top: 2.5rem;
+  }
+
+  .customersQuantity {
+    margin-top: 2rem;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,260 @@
+.homeContainer {
+  width: 70%;
+  min-height: 100vh;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pageTitle {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+
+  color: var(--primary-gray);
+
+  svg {
+    font-size: 1.75rem;
+  }
+
+  span {
+    margin-left: 0.75rem;
+    font-size: 1.4rem;
+  }
+}
+
+.usersListInfoContainer {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    width: max-content;
+    margin-top: 1rem;
+    padding: 0.5rem 0.8rem;
+    
+    outline: 0;
+    border: 0;
+    border-radius: 0.3rem;
+
+    background: var(--primary-orange);
+    color: #eee;
+    transition: 0.3s background;
+
+    &:hover {
+      background: transparent;
+      border: 1px solid var(--primary-orange);
+      color: var(--primary-orange);
+    }
+  }
+}
+
+.usersListInfoContent {
+  p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #646B71;
+  }
+
+  span {
+    font-size: 1rem;
+    color: var(--light-gray);
+  }
+}
+
+hr {
+  margin: 0.75rem 0;
+  background: #F4F4F4;
+  height: 1px;
+  width: 100%;
+  opacity: 0.3;
+}
+
+.usersListInfoContainer {
+  width: 100%;
+}
+
+.form {
+  width: 100%;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+
+  input, select {
+    width: 100%;
+    height: 2.5rem;
+    padding: 0 0.75rem;
+    margin-top: 1rem;
+    border: 1px solid var(--light-gray);
+    border-radius: 0.3rem;
+    outline: 0;
+  }
+
+  select {
+    padding: 0 0.5rem;
+    color: #777;
+  }
+}
+
+.controlButtons {
+  margin-top: 3rem;
+  align-self: flex-end;
+
+  button {
+    width: max-content;
+    height: 2.3rem;
+    padding: 0.5rem 2rem;
+    margin: 0 1rem 0 0;
+    
+    outline: 0;
+    border: 0;
+    border-radius: 0.3rem;
+
+    background: var(--primary-orange);
+    color: #eee;
+    font-size: 0.9rem;
+    transition: 0.3s background;
+
+    &:hover {
+      background: transparent;
+      border: 1px solid var(--primary-orange);
+      color: var(--primary-orange);
+    }
+  }
+
+  a {
+    width: max-content;
+    height: 2.4rem;
+    padding: 0.5rem 2rem;
+    
+    outline: 0;
+    border: 0;
+    border-radius: 0.3rem;
+
+    background: transparent;
+    border: 1px solid var(--primary-orange);
+    color: var(--primary-orange);
+    font-size: 0.9rem;
+
+    transition: 0.3s background;
+    text-decoration: none;
+
+    &:hover {
+      background: var(--primary-orange);
+      color: #eee;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .pageTitle {
+    svg {
+      font-size: 3rem;
+    }
+  
+    span {
+      margin-left: 1.5rem;
+      font-size: 2rem;
+    }
+  }
+
+  hr {
+    margin: 2rem 0;
+    background: #F4F4F4;
+    height: 1px;
+    width: 100%;
+    opacity: 0.2;
+  }
+
+  .usersListInfoContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  
+    button {
+      margin-top: 0;
+      margin-right: 2rem;
+      padding: 0.6rem 1rem;
+      border-radius: 0.3rem;
+      font-size: 1rem;
+    }
+  }
+
+  .usersListInfoContent {
+    p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #646B71;
+    }
+  
+    span {
+      font-size: 1.1rem;
+      color: var(--light-gray);
+    }
+  }
+
+  .controlButtons {
+    margin-top: 3rem;
+  
+    button {
+      width: max-content;
+      height: 2.3rem;
+      padding: 0.5rem 2rem;
+      margin: 0 1rem 0 0;
+      
+      outline: 0;
+      border: 0;
+      border-radius: 0.3rem;
+  
+      background: var(--primary-orange);
+      color: #eee;
+      font-size: 0.9rem;
+      transition: 0.3s background;
+  
+      &:hover {
+        background: transparent;
+        border: 1px solid var(--primary-orange);
+        color: var(--primary-orange);
+      }
+    }
+  
+    a {
+      width: max-content;
+      height: 2.4rem;
+      padding: 0.5rem 2rem;
+      
+      outline: 0;
+      border: 0;
+      border-radius: 0.3rem;
+  
+      background: transparent;
+      border: 1px solid var(--primary-orange);
+      color: var(--primary-orange);
+      font-size: 0.9rem;
+  
+      transition: 0.3s background;
+      text-decoration: none;
+  
+      &:hover {
+        background: var(--primary-orange);
+        color: #eee;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .form {
+    width: 100%;
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 2.5vw;
+  }
+}
