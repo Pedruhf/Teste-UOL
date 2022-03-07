@@ -1,5 +1,4 @@
-import api from "../../config/api";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { FiUser } from "react-icons/fi";
 import { CustomerCard } from "../../components/CustomerCard/customer-card";
 
@@ -9,19 +8,6 @@ import { Link } from "react-router-dom";
 
 export const Home = () => {
   const { customers } = useContext(CustomerContext);
-
-  async function getCustomers(): Promise<void> {
-    try {
-      const res = await api.get("/customers.json");
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  useEffect(() => {
-    getCustomers();
-  });
 
   return (
     <main className={styles.homeContainer}>

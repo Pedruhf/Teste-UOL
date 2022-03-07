@@ -2,6 +2,7 @@ import { Customer, customerStatus } from "../../models/customer";
 
 import { GoPrimitiveDot } from "react-icons/go";
 import styles from "./styles.module.scss";
+import { Link } from "react-router-dom";
 
 type CustomerCardProps = {
   customer: Customer
@@ -24,7 +25,7 @@ export const CustomerCard = ({ customer }: CustomerCardProps) => {
         {customerStatus[customer.status].name}
       </span>
 
-      <button className={styles.editButton}>Editar</button>
+      <Link to={{ pathname: `/editar/${customer.id}` }} className={styles.editButton}>Editar</Link>
     </div>
   );
 }

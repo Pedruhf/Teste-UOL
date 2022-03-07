@@ -5,6 +5,8 @@ import { validateCreateUser } from "../utils/validateCreateUser";
 type CustomersContext = {
   customers: Customer[];
   handleCreateCustomer: (customer: Customer) => void;
+  getCustomerById: (id: string) => Customer | null;
+  editCustomer: (customer: Customer) => void;
 }
 
 type CustomerProviderProps = {
@@ -50,8 +52,27 @@ function CustomerContextProvider(props: CustomerProviderProps) {
     setCustomers([...customers, customer]);
   }
 
+  function getCustomerById(id: string): Customer | null {
+    const customer = customers.find(customer => customer.id === id);
+    if (!customer) {
+      return null;
+    }
+
+    return customer;
+  }
+
+  function editCustomer(customer: Customer): void {
+    const customerIndex = customers.findIndex(item => item.id === customer.id);
+    if (customerIndex < 0) {
+      throw new Error("Usuário não encontrado");
+    }
+    
+    validateCreateUser(customer);
+    customers[customerIndex] = customer;
+  }
+
   return(
-    <CustomerContext.Provider value={{ customers, handleCreateCustomer }}>
+    <CustomerContext.Provider value={{ customers, handleCreateCustomer, getCustomerById, editCustomer }}>
       { props.children }
     </CustomerContext.Provider>
   );
