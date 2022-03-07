@@ -4,6 +4,10 @@ import { FormEvent, useContext, useEffect, useState } from "react";
 import { FiUser } from "react-icons/fi";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { cpfMask, phoneMask } from "../../utils/inputMasks";
+import { Toast as ToastModel } from "../../models/toast";
+import { Toast } from "../../components/Toast";
+import { VscWarning } from "react-icons/vsc";
+import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 
 import styles from "./styles.module.scss";
 
@@ -17,6 +21,9 @@ export const EditCustomer = () => {
   const [id, setId] = useState("");
   const [phone, setPhone] = useState("");
   const [status, setStatus] = useState("");
+
+  const [isToastVisible, setIsToastVisible] = useState<boolean>(false);
+  const [toastConfig, setToastConfig] = useState({} as ToastModel);
   
   function setCustomer(customer: Customer): void {
     setName(customer.name);
@@ -39,9 +46,29 @@ export const EditCustomer = () => {
       
       editCustomer(customer);
 
-      navigate("/");
+      const toastConfig = {
+        type: "success",
+        message: "Usuário editado com sucesso!",
+        icon: <IoIosCheckmarkCircleOutline />,
+        position: "right",
+        timeout: 3000,
+      };
+      setToastConfig(toastConfig);
+      setIsToastVisible(true);
+
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
     } catch (error: any) {
-      alert(error.message);
+      const toastConfig = {
+        type: "warning",
+        message: error.message || "Erro ao tentar realizar operação",
+        icon: <VscWarning />,
+        position: "right",
+        timeout: 4000,
+      };
+      setToastConfig(toastConfig);
+      setIsToastVisible(true);
     }
   }
 
@@ -111,6 +138,8 @@ export const EditCustomer = () => {
         <button onClick={(event) => handleEditUser(event)}>Editar</button>
         <Link to="/">Voltar</Link>
       </div>
+
+      {isToastVisible && <Toast toast={toastConfig} onClose={() => setIsToastVisible(false)} />}
     </main>
   );
 }

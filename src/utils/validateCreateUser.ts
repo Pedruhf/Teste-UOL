@@ -50,7 +50,7 @@ function validatePhone(phone: string): void {
   const regExpPhone = /\([0-9]{2}\)\s[0-9]{5}-[0-9]{4}/;
 
   if(!regExpPhone.test(phone)) {
-    throw new Error("Padrão inválido para o telefone. O telefone deve ter o formato como o seguinte exemplo: (00)00000-0000");
+    throw new Error("Padrão inválido para o telefone. O telefone deve ter o formato como o seguinte exemplo: (00) 00000-0000");
   }
 }
 

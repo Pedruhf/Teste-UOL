@@ -4,6 +4,10 @@ import { FormEvent, useContext, useState } from "react";
 import { FiUser } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import { cpfMask, phoneMask } from "../../utils/inputMasks";
+import { Toast as ToastModel } from "../../models/toast";
+import { Toast } from "../../components/Toast";
+import { VscWarning } from "react-icons/vsc";
+import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 
 import styles from "./styles.module.scss";
 
@@ -16,6 +20,9 @@ export const CreateCustomer = () => {
   const [id, setId] = useState("");
   const [phone, setPhone] = useState("");
   const [status, setStatus] = useState("");
+
+  const [isToastVisible, setIsToastVisible] = useState<boolean>(false);
+  const [toastConfig, setToastConfig] = useState({} as ToastModel);
 
   function handleCreateUser(event: FormEvent) {
     event.preventDefault();
@@ -30,10 +37,31 @@ export const CreateCustomer = () => {
       }
   
       handleCreateCustomer(customer);
-      alert("Usuário criado com sucesso!");
-      navigate("/");
+
+      const toastConfig = {
+        type: "success",
+        message: "Usuário cadastrado com sucesso!",
+        icon: <IoIosCheckmarkCircleOutline />,
+        position: "right",
+        timeout: 3000,
+      };
+      setToastConfig(toastConfig);
+      setIsToastVisible(true);
+
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
+
     } catch (error: any) {
-      alert(error.message);
+      const toastConfig = {
+        type: "warning",
+        message: error.message || "Erro ao tentar realizar operação",
+        icon: <VscWarning />,
+        position: "right",
+        timeout: 4000,
+      };
+      setToastConfig(toastConfig);
+      setIsToastVisible(true);
     }
   }
 
@@ -94,6 +122,8 @@ export const CreateCustomer = () => {
         <button onClick={(event) => handleCreateUser(event)}>Criar</button>
         <Link to="/">Voltar</Link>
       </div>
+
+      {isToastVisible && <Toast toast={toastConfig} onClose={() => setIsToastVisible(false)} />}
     </main>
   );
 }
