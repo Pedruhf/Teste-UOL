@@ -114,6 +114,7 @@ export const EditCustomer = () => {
           type="text"
           placeholder="CPF"
           value={id}
+          disabled
           onChange={event => setId(cpfMask(event.target.value))}
         />
         <input
