@@ -40,7 +40,7 @@
     border-radius: 0.3rem;
 
     background: var(--primary-orange);
-    color: #eee;
+    color: #fff;
     transition: 0.3s background;
 
     &:hover {
@@ -117,7 +117,7 @@ hr {
     border-radius: 0.3rem;
 
     background: var(--primary-orange);
-    color: #eee;
+    color: #fff;
     font-size: 0.9rem;
     transition: 0.3s background;
 
@@ -147,7 +147,7 @@ hr {
 
     &:hover {
       background: var(--primary-orange);
-      color: #eee;
+      color: #fff;
     }
   }
 }
@@ -215,7 +215,7 @@ hr {
       border-radius: 0.3rem;
   
       background: var(--primary-orange);
-      color: #eee;
+      color: #fff;
       font-size: 0.9rem;
       transition: 0.3s background;
   
@@ -245,7 +245,7 @@ hr {
   
       &:hover {
         background: var(--primary-orange);
-        color: #eee;
+        color: #fff;
       }
     }
   }
@@ -255,6 +255,18 @@ hr {
   .form {
     input {
       font-size: 0.9rem;
+    }
+  }
+
+  .controlButtons {
+    margin-top: 3rem;
+  
+    button {
+      font-size: 1rem;
+    }
+  
+    a {
+      font-size: 1rem;
     }
   }
 }
