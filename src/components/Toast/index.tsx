@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { VscClose } from "react-icons/vsc";
-import { Toast as ToastModel } from "../../models/toast";
+import { Toast as ToastModel } from "./toast";
 import styles from "./styles.module.scss";
 
 type ToastProps = {

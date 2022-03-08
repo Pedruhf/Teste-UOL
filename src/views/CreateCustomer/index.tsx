@@ -4,7 +4,7 @@ import { FormEvent, useContext, useState } from "react";
 import { FiUser } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import { cpfMask, phoneMask } from "../../utils/inputMasks";
-import { Toast as ToastModel } from "../../models/toast";
+import { Toast as ToastType } from "../../components/Toast/toast";
 import { Toast } from "../../components/Toast";
 import { VscWarning } from "react-icons/vsc";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
@@ -22,7 +22,7 @@ export const CreateCustomer = () => {
   const [status, setStatus] = useState("");
 
   const [isToastVisible, setIsToastVisible] = useState<boolean>(false);
-  const [toastConfig, setToastConfig] = useState({} as ToastModel);
+  const [toastConfig, setToastConfig] = useState({} as ToastType);
 
   function handleCreateUser(event: FormEvent) {
     event.preventDefault();

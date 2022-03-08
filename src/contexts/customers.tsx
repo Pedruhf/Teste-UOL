@@ -48,6 +48,16 @@ function CustomerContextProvider(props: CustomerProviderProps) {
   ]);
 
   function handleCreateCustomer(customer: Customer): void {
+    let customerExists = customers.some(item => item.id === customer.id);
+    if (customerExists) {
+      throw new Error("Este CPF já foi cadastrado");
+    }
+
+    customerExists = customers.some(item => item.email === customer.email);
+    if (customerExists) {
+      throw new Error("Este e-mail já foi cadastrado");
+    }
+
     validateCreateUser(customer);
     setCustomers([...customers, customer]);
   }
