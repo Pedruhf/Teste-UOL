@@ -1,3 +1,4 @@
+import React from "react";
 import { Customer, customerStatus } from "../../domain/models/customer";
 import { GoPrimitiveDot } from "react-icons/go";
 import { Link } from "react-router-dom";
@@ -8,7 +9,7 @@ type CustomerCardProps = {
   customer: Customer
 }
 
-export const CustomerCard = ({ customer }: CustomerCardProps) => {
+export const CustomerCard: React.FC<CustomerCardProps> = ({ customer }: CustomerCardProps) => {
   return (
     <div className={styles.customerContainer}>
       <div className={styles.basicInfo}>

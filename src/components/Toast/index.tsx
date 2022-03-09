@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import { VscClose } from "react-icons/vsc";
 import { Toast as ToastModel } from "./toast";
@@ -8,7 +9,7 @@ type ToastProps = {
   onClose: () => void;
 }
 
-const Toast = ( { toast, onClose } : ToastProps) => {
+export const Toast: React.FC<ToastProps> = ( { toast, onClose } : ToastProps) => {
   const [toastSituation, setToastSituation] = useState<string>("opening");
   
   useEffect(() => {
@@ -39,5 +40,3 @@ const Toast = ( { toast, onClose } : ToastProps) => {
     </div>
   );
 }
-
-export { Toast };

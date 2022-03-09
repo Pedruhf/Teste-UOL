@@ -1,3 +1,4 @@
+import React from "react";
 import { Customer } from "../../../domain/models/customer";
 import { CustomerContext } from "../../../main/contexts/customers";
 import { MaskHandler } from "../../../main/utils/maskHandler";
@@ -11,7 +12,7 @@ import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 
 import styles from "./styles.module.scss";
 
-export const EditCustomer = () => {
+export const EditCustomer: React.FC = () => {
   const { handleGetCustomerById, handleEditCustomer } = useContext(CustomerContext);
   const customerId = useParams().id;
   const navigate = useNavigate();
