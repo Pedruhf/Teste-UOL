@@ -12,7 +12,7 @@ import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import styles from "./styles.module.scss";
 
 export const EditCustomer = () => {
-  const { getCustomerById, editCustomer } = useContext(CustomerContext);
+  const { handleGetCustomerById, handleEditCustomer } = useContext(CustomerContext);
   const customerId = useParams().id;
   const navigate = useNavigate();
 
@@ -44,7 +44,7 @@ export const EditCustomer = () => {
         status,
       }
       
-      editCustomer(customer);
+      handleEditCustomer(customer);
 
       const toastConfig = {
         type: "success",
@@ -73,7 +73,7 @@ export const EditCustomer = () => {
   }
 
   useEffect(() => {
-    const customer = getCustomerById(customerId || '');
+    const customer = handleGetCustomerById(customerId || '');
     if (!customer) {
       return navigate("/");
     }

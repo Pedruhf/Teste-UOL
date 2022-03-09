@@ -1,4 +1,4 @@
-export default class TokenHandler {
+export default class StorageHandler {
   private LOCAL_STORAGE_SECRET_KEY = process.env.SECRET_KEY || "teste_uol::secret";
 
   public getDataFromLocalStorage(): any | null {
@@ -21,6 +21,6 @@ export default class TokenHandler {
   }
 }
 
-const tokenHandler = new TokenHandler();
+const storageHandler = new StorageHandler();
 
-export { TokenHandler, tokenHandler };
+export { StorageHandler, storageHandler };
