@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { FiUser } from "react-icons/fi";
 import { CustomerCard } from "../../components/CustomerCard/customer-card";
+import { CustomerContext } from "../../main/contexts/customers";
+import { Link } from "react-router-dom";
 
 import styles from "./styles.module.scss";
-import { CustomerContext } from "../../contexts/customers";
-import { Link } from "react-router-dom";
 
 export const Home = () => {
   const { customers } = useContext(CustomerContext);

@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import { Home } from "../views/Home";
-import { CreateCustomer } from "../views/CreateCustomer";
-import { EditCustomer } from "../views/EditCustomer";
+import { Home } from "../../views/Home";
+import { CreateCustomer } from "../../views/CreateCustomer";
+import { EditCustomer } from "../../views/EditCustomer";
 
 export default function AppRoutes() {
   return (

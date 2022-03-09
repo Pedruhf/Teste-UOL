@@ -1,7 +1,7 @@
 import { Header } from "./components/Header";
 import { BrowserRouter } from "react-router-dom";
-import { CustomerContextProvider } from "./contexts/customers";
-import AppRoutes from "./routes";
+import { CustomerContextProvider } from "./main/contexts/customers";
+import AppRoutes from "./main/routes";
 
 import "./styles/global.scss";
 

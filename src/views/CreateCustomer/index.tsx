@@ -1,9 +1,9 @@
 import { Customer } from "../../models/customer";
-import { CustomerContext } from "../../contexts/customers";
+import { CustomerContext } from "../../main/contexts/customers";
+import { MaskHandler } from "../../main/utils/maskHandler";
 import { FormEvent, useContext, useState } from "react";
 import { FiUser } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
-import { cpfMask, phoneMask } from "../../utils/inputMasks";
 import { Toast as ToastType } from "../../components/Toast/toast";
 import { Toast } from "../../components/Toast";
 import { VscWarning } from "react-icons/vsc";
@@ -98,13 +98,13 @@ export const CreateCustomer = () => {
           type="text"
           placeholder="CPF"
           value={id}
-          onChange={event => setId(cpfMask(event.target.value))}
+          onChange={event => setId(MaskHandler.cpfMask(event.target.value))}
         />
         <input
           type="text"
           placeholder="Telefone"
           value={phone}
-          onChange={event => setPhone(phoneMask(event.target.value))}
+          onChange={event => setPhone(MaskHandler.phoneMask(event.target.value))}
         />
         <select
           value={status}

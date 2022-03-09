@@ -1,6 +1,6 @@
 import { Customer } from "../models/customer";
-import StorageHandler from "../utils/storageHandler";
-import { validateCreateUser } from "../utils/validateCreateUser";
+import StorageHandler from "../main/utils/storageHandler";
+import { validateCreateUser } from "../main/utils/validateCreateUser";
 
 const INITAL_STATE: Customer[] = [
   {

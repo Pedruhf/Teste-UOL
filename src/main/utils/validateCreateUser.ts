@@ -1,4 +1,4 @@
-import { Customer } from "../models/customer";
+import { Customer } from "../../models/customer";
 
 export function validateCreateUser(customer: Customer) {
   validateName(customer.name);
