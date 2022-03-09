@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { FiUser } from "react-icons/fi";
-import { CustomerCard } from "../../components/CustomerCard/customer-card";
-import { CustomerContext } from "../../main/contexts/customers";
+import { CustomerCard } from "../../../components/CustomerCard/customer-card";
+import { CustomerContext } from "../../../main/contexts/customers";
 import { Link } from "react-router-dom";
 
 import styles from "./styles.module.scss";

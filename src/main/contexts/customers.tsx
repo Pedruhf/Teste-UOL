@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useState } from "react";
-import { Customer } from "../../models/customer";
+import { Customer } from "../../domain/models/customer";
 import { customerRepository } from "../composers/customerRepository";
 
 type CustomersContext = {

@@ -1,8 +1,8 @@
-import { Customer, customerStatus } from "../../models/customer";
-
+import { Customer, customerStatus } from "../../domain/models/customer";
 import { GoPrimitiveDot } from "react-icons/go";
-import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
+
+import styles from "./styles.module.scss";
 
 type CustomerCardProps = {
   customer: Customer

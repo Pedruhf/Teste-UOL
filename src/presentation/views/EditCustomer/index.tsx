@@ -1,18 +1,19 @@
-import { Customer } from "../../models/customer";
-import { CustomerContext } from "../../main/contexts/customers";
-import { MaskHandler } from "../../main/utils/maskHandler";
-import { FormEvent, useContext, useState } from "react";
+import { Customer } from "../../../domain/models/customer";
+import { CustomerContext } from "../../../main/contexts/customers";
+import { MaskHandler } from "../../../main/utils/maskHandler";
+import { FormEvent, useContext, useEffect, useState } from "react";
 import { FiUser } from "react-icons/fi";
-import { Link, useNavigate } from "react-router-dom";
-import { Toast as ToastType } from "../../components/Toast/toast";
-import { Toast } from "../../components/Toast";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { Toast as ToastType } from "../../../components/Toast/toast";
+import { Toast } from "../../../components/Toast";
 import { VscWarning } from "react-icons/vsc";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 
 import styles from "./styles.module.scss";
 
-export const CreateCustomer = () => {
-  const { handleCreateCustomer } = useContext(CustomerContext);
+export const EditCustomer = () => {
+  const { handleGetCustomerById, handleEditCustomer } = useContext(CustomerContext);
+  const customerId = useParams().id;
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
@@ -23,24 +24,31 @@ export const CreateCustomer = () => {
 
   const [isToastVisible, setIsToastVisible] = useState<boolean>(false);
   const [toastConfig, setToastConfig] = useState({} as ToastType);
+  
+  function setCustomer(customer: Customer): void {
+    setName(customer.name);
+    setEmail(customer.email);
+    setId(customer.id);
+    setPhone(customer.phone);
+    setStatus(customer.status);
+  }
 
-  function handleCreateUser(event: FormEvent) {
+  function handleEditUser(event: FormEvent): void {
     event.preventDefault();
-
     try {
       const customer: Customer = {
         id,
         name,
         email,
         phone,
-        status
+        status,
       }
-  
-      handleCreateCustomer(customer);
+      
+      handleEditCustomer(customer);
 
       const toastConfig = {
         type: "success",
-        message: "Usuário cadastrado com sucesso!",
+        message: "Usuário editado com sucesso!",
         icon: <IoIosCheckmarkCircleOutline />,
         position: "right",
         timeout: 3000,
@@ -51,7 +59,6 @@ export const CreateCustomer = () => {
       setTimeout(() => {
         navigate("/");
       }, 3000);
-
     } catch (error: any) {
       const toastConfig = {
         type: "warning",
@@ -64,6 +71,16 @@ export const CreateCustomer = () => {
       setIsToastVisible(true);
     }
   }
+
+  useEffect(() => {
+    const customer = handleGetCustomerById(customerId || '');
+    if (!customer) {
+      return navigate("/");
+    }
+    
+    setCustomer(customer);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <main className={styles.homeContainer}>
@@ -81,7 +98,7 @@ export const CreateCustomer = () => {
         </div>
       </div>
 
-      <form className={styles.form} onSubmit={handleCreateUser}>
+      <form className={styles.form}>
         <input
           type="text"
           placeholder="Nome"
@@ -98,6 +115,7 @@ export const CreateCustomer = () => {
           type="text"
           placeholder="CPF"
           value={id}
+          disabled
           onChange={event => setId(MaskHandler.cpfMask(event.target.value))}
         />
         <input
@@ -119,7 +137,7 @@ export const CreateCustomer = () => {
 
       </form>
       <div className={styles.controlButtons}>
-        <button onClick={(event) => handleCreateUser(event)}>Criar</button>
+        <button onClick={(event) => handleEditUser(event)}>Editar</button>
         <Link to="/">Voltar</Link>
       </div>
 
