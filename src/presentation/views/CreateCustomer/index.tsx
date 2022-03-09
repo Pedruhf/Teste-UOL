@@ -109,6 +109,7 @@ export const CreateCustomer = () => {
         <select
           value={status}
           onChange={event => setStatus(event.target.value)}
+          className={status === "" ? 'defaultValue' : ''}
         >
           <option value="" hidden>Status</option>
           <option value="active">Ativo</option>
