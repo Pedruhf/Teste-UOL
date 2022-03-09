@@ -1,7 +1,7 @@
-import React, { FormEvent, useContext, useState } from "react";
 import { Customer } from "../../../domain/models/customer";
 import { CustomerContext } from "../../../main/contexts/customers";
 import { MaskHandler } from "../../../main/utils/maskHandler";
+import { FormEvent, useContext, useState } from "react";
 import { FiUser } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import { Toast as ToastType } from "../../../components/Toast/toast";
@@ -11,7 +11,7 @@ import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 
 import styles from "./styles.module.scss";
 
-export const CreateCustomer: React.FC = () => {
+export const CreateCustomer = () => {
   const { handleCreateCustomer } = useContext(CustomerContext);
   const navigate = useNavigate();
 
